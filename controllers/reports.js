@@ -6,9 +6,6 @@ let validStatus = ['Negative', 'Travelled-Quarantine', 'Symptoms-Quarantine', 'P
 //filter reports by status
 module.exports.filterByStatus = async function(req,res) {   
     try {
-        if(req.body.status.charAt(0) == "0") {
-            console.log("error in mobile number");
-        }
         if (req.body.status.trim() == "" || req.body.status == undefined || !validStatus.includes(req.body.status)) {
             //if the ststus sent is not valid
             return res.json(401, {
