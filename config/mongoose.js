@@ -1,15 +1,14 @@
-const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/Hospital_API_dev");
+//connect to mongoose
+const mongoose = require('mongoose');//require mongoose
+mongoose.connect("mongodb://localhost/Hospital_API_dev");//connect to database
+const db = mongoose.connection;//connection to db
+db.on('error', console.error.bind(console, "Error in connecting to MongoDB"));//if error occured
 
-const db= mongoose.connection;
-db.on('error', console.error.bind(console, "Error in connecting to MongoDB")); 
+db.once('open', function () {
+    //connected succesfully
+    console.log(`Connected to Database :: MongoDB`);
+});
 
-db.once('open', function(){
-
-console.log(`Connected to Database :: MongoDB`);
-}
-);
-
-module.exports=db;
+module.exports = db;
 
 
