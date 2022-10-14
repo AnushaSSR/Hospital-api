@@ -4,18 +4,21 @@ const Report = require("../models/reports");//Report model
 let validStatus = ['Negative', 'Travelled-Quarantine', 'Symptoms-Quarantine', 'Positive-Admit'];
 
 //filter reports by status
-module.exports.filterByStatus = async function(req,res) {   
+module.exports.filterByStatus = async function (req, res) {
+
+    console.log(req.params.status);
     try {
-        if (req.body.status.trim() == "" || req.body.status == undefined || !validStatus.includes(req.body.status)) {
+        if (req.params.status.trim() == "" || req.params.status == undefined || !validStatus.includes(req.params.status)) {
             //if the ststus sent is not valid
+            console.log(!validStatus.includes(req.params.status));
             return res.json(401, {
                 message:
                     "Enter or select a valid status from the list (case sensitive) :'Negative','Travelled-Quarantine','Symptoms-Quarantine','Positive-Admit' "
             });
-        }   
+        }
         let status = req.params.status;
-        let filteredReports = await Report.find({status: status}).sort("createdAt");//filter report by status
-        if(!filteredReports.length){
+        let filteredReports = await Report.find({ status: status }).sort("createdAt");//filter report by status
+        if (!filteredReports.length) {
             //if no reports exists
             return res.json(409, {
                 message: `No reports found for status '${status}' `,

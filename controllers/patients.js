@@ -11,28 +11,19 @@ let validStatus = ['Negative', 'Travelled-Quarantine', 'Symptoms-Quarantine', 'P
 //Register patient
 module.exports.register = async function (req, res) {
     try {
-        // //checking by the doctor id
-        // let doctor = await Doctor.findById(req.body.doctorId);//check if the doctor exists or doctor is logged in 
-        // if (!doctor) {
-        //     //if not authorised
-        //     return res.json(401, {
-        //         message: "Unauthorised accesss : Doctor"
-        //     });
-        // }
-        //validating user inputs
         if (req.body.name.trim() == "" || req.body.name == undefined) {
             //if the name entered is null or undefined
             return res.json(400, {
                 message: "Name is not provided .Please enter valid name",
             });
         }
-        if(req.body.mobile_number.charAt(0) == "0") {
+        if (req.body.mobile_number.charAt(0) == "0") {
             //if entered mobile numnberstart with 0
             return res.json(400, {
                 message: "Mobile Number must not start with digit 0",
-            });        }
-
-        if (req.body.mobile_number.length != 10 ) {
+            });
+        }
+        if (req.body.mobile_number.length != 10) {
             //if the mobile number entered is less or gretaer than 10 digits
             return res.json(409, {
                 message: "Please enter valid 10 digit mobile number",
@@ -60,7 +51,7 @@ module.exports.register = async function (req, res) {
     } catch (err) {
         //catching errors
         console.log("error :", err);
-        if(err.valueType == 'string') {
+        if (err.valueType == 'string') {
             return res.json(401, {
                 message: "Enter numerical mobile number with digits 0-9"
             });
@@ -88,12 +79,6 @@ module.exports.createReport = async function (req, res) {
             })
         }
         let createdBy = await Doctor.findById(req.body.doctorId);//chcek if doctor details exists
-        if (!createdBy) {
-            //if doesnot exist
-            return res.json(401, {
-                message: "Unauthorised accesss : Doctor id invalid"
-            });
-        }
         let patient = await Patient.findById(req.params.id);//check if the patient exists
         if (!patient) {
             //if not a patient
