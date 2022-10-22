@@ -1,14 +1,12 @@
 //connect to mongoose
 const mongoose = require('mongoose');//require mongoose
 
-require('dotenv').config();
-const mongoString = process.env.DATABASE_URL;
+require('dotenv').config();//to manage .env file
+const mongoString = process.env.DATABASE_URL;// databse url from the env variables
 
-console.log(`mongo string is`, mongoString);
-mongoose.connect(mongoString);
-const db = mongoose.connection;
-// mongoose.connect("mongodb://localhost/Hospital_API_dev");//connect to database
-// const db = mongoose.connection;//connection to db
+mongoose.connect(mongoString);//connect mongoose to database path
+const db = mongoose.connection;//establishing connection
+
 db.on('error', console.error.bind(console, "Error in connecting to MongoDB"));//if error occured
 
 db.once('open', function () {

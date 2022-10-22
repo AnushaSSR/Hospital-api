@@ -1,7 +1,7 @@
 const Doctor = require('../models/doctors');// Doctor model
 const jwt = require('jsonwebtoken');//to get the json web token
-require('dotenv').config();
-const secret = process.env.JWT_SECRET;
+require('dotenv').config();//to manage .env file
+const secret = process.env.JWT_SECRET;// secret fetched from env variable
 
 //Register doctor
 module.exports.register = async function (req, res) {
