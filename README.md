@@ -1,6 +1,14 @@
 # Hospital Api
-* Server-side for a hospital/ API where doctors can create and find report of patients to ement Cell enables employee to keep track of the student placement details.
-* This is implmented with a neat interface with Tech Stack: Node.js & Mongo DB.
+* Server-side API for a hospital. API where doctors can create and find report of patients.
+* This is implemented with Tech Stack: Node.js & Mongo DB.
+
+# List of the routes: 
+- **/doctors/register** → Doctor can register by specifying name, username, email and password. (request: POST)
+- **/doctors/login** → By specifying the username and password the registered doctor can login,  JWT to be used will be returned.( request: POST)
+- **/patients/register** → Authenticated doctor can register a patient by specifying name, mobile number of the patient.( request: POST)
+- **/patients/:id/create_report** → Authentiacted doctor can create report of a registered patient.( request: POST)
+- **/patients/:id/all_reports** → List of reports of a patient oldest to latest. ( request: GET)
+- **/reports/:status** → List of all the reports of all the patients filtered by a specific status. ( request: GET)
 
 # Features
 1. Doctors can register and login.
@@ -26,13 +34,5 @@
 
 This will run on Port: 8000 (if nothing is specified in env port). 
 7. Install **POSTMAN** and test the API's.
-
-# List of the routes: 
-- **/doctors/register** → Doctor can register by specifying name, username, email and password. (request: POST)
-- **/doctors/login** → By specifying the username and password the registered doctor can login,  JWT to be used will be returned.( request: POST)
-- **/patients/register** → Authenticated doctor can register a patient by specifying name, mobile number of the patient.( request: POST)
-- **/patients/:id/create_report** → Authentiacted doctor can create report of a registered patient.( request: POST)
-- **/patients/:id/all_reports** → List of reports of a patient oldest to latest. ( request: GET)
-- **/reports/:status** → List of all the reports of all the patients filtered by a specific status. ( request: GET)
 
 # <a href="https://hospital-api-data.herokuapp.com/" target="_blank">Click here</a> to check the server side, hospital API.
