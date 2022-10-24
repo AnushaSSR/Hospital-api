@@ -35,4 +35,4 @@
 This will run on Port: 8000 (if nothing is specified in env port). 
 7. Install **POSTMAN** and test the API's.
 
-# <a href="https://hospital-api-data.herokuapp.com/" target="_blank">Click here</a> to check the server side, hospital API.
+# <a href="https://hospital-api-data.herokuapp.com/" target="_blank">Click here</a> to check the server side hospital API.
