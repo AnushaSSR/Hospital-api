@@ -28,7 +28,7 @@
 
 >JWT_SECRET = TextOfYourChoice
 
->DATABASE_URL = mongodb://localhost:27017/hospital_api_development
+>DATABASE_URL = YourDatabaseURL
 
 6. Run **npm start** to start the server.
 
