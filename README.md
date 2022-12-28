@@ -19,7 +19,7 @@
 **Ensure that npm ,node, mongodb are installed in your system**. Follow the steps below to setup this project in your local: 
 
 1. Copy the git repository link.
-2. Open Git bash and clone the project using **git clone** command. Clone the code from **master** branch
+2. Open Git bash and clone the project using **git clone** command. Clone the code from **master** branch.
 3. Run **npm install** to install the dependencies.
 4. Create a .env file in the root of the project.
 5. Paste the following in your .env file
